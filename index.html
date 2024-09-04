@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola mi amor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                THANIA
+            </div>
+            <!--<div class="menu">
+                <a href="#">Home</a>
+                <a href="#">Home2</a>
+                <a href="#">Home3</a>
+                <a href="#">Home4</a>
+            </div>-->
+            <div class="code">
+                <a href="#" id="codeBtn">Códigos</a>
+            </div>
+        </nav>
+
+        <section class="h-text">
+            <span id="greeting">Buenas noches mi amor</span>
+            <h1 id="phrase">Feliz 2do aniversario</h1>
+            <br>
+            <a href="#" id="refreshBtn"><span id="emoji" class="fa fa-sync-alt"></span></a>
+        </section>
+    </header>
+
+    <div id="errorContainer" class="error-container"></div>
+    <div id="emojiContainer" class="emoji-container"></div>
+    
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span id="closeBtn" class="close-btn">&times;</span>
+            <form id="modalForm">
+                <h2>Coloca un código</h2>
+                <input type="text" id="modalInput">
+                <button type="submit" id="submitBtn">OKI</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- CODE 2 -->
+    <div id="overlay">
+        <canvas id="canvas" width="1400" height="600"></canvas>
+        <button id="backButton"><i class="fas fa-times"></i></button>
+        <div class="text-box">
+            <h1>Te Amo</h1>
+        </div>
+    </div>
+    
+    <!-- CODE 3 -->
+    <div id="gallery-modal" class="gallery-modal">
+        <div id="gallery" class="gallery">
+            <div class="box">
+                <span style="--i:1;"><img src="./images/img1.jpg"></span>
+                <span style="--i:2;"><img src="./images/img2.jpg"></span>
+                <span style="--i:3;"><img src="./images/img3.jpg"></span>
+                <span style="--i:4;"><img src="./images/img4.jpg"></span>
+                <span style="--i:5;"><img src="./images/img5.jpg"></span>
+                <span style="--i:6;"><img src="./images/img6.jpg"></span>
+                <span style="--i:7;"><img src="./images/img7.jpg"></span>
+                <span style="--i:8;"><img src="./images/img8.jpg"></span>
+            </div>
+            <div class="btns">
+                <div class="btn prev"></div>
+                <div class="btn next"></div>
+            </div>
+            <button id="backButton2"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+
+    <!-- CODE 4 -->
+    <div id="letter-modal" class="letter-modal">
+        <div class="envelope-wrapper flap">
+            <div class="envelope">
+                <div class="letter">
+                    <div class="text">
+                        <strong>Para Thania.</strong>
+                        <p>
+                        Desde que te vi por primera vez, no saliste de mi mente.
+                        Desde que te besé por primera vez, no saliste de mi corazón.
+                        Quiero emprender este viaje llamado vida a tu lado, y estaré 
+                        seguro que me equivoqué de vida si este viaje llega a su fin 
+                        sin tí.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="heart2"></div>
+            <button id="backButton3"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+
+    <!-- CODE 5 -->
+    <div id="question-modal" class="question-modal">
+        <div class="question-gif">
+            <img id="questionGif" src="./gifs/question1.gif" alt="Question GIF">
+        </div>
+        <h1 id="questionTitle">¿Quieres Traka conmigo mi amor?</h1>
+
+        <div class="question-btn">
+            <a href="#" id="yesBtn">chiii!</a>
+            <a href="#" id="noBtn">nooo!</a>
+        </div>
+        <button id="backButton4"><i class="fas fa-times"></i></button>
+    </div>
+
+    <script src="code1.js"></script>
+    <script src="code2.js"></script>
+    <script src="code3.js"></script>
+    <script src="code4.js"></script>
+    <script src="code5.js"></script>
+    <script src="errorCode.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

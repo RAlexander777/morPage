@@ -1,0 +1,584 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Crimson Text', serif;
+}
+
+header{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)), url('background.png') no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+    position: relative; 
+    font-family: 'Crimson Text', serif;
+}
+
+nav{
+    width: 100%;
+    height: 100px;
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo{
+    font-size: 2em;
+    letter-spacing: 2px;
+}
+
+.menu a{
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 20px;
+}
+
+.menu a:hover{
+    border: 1px solid indianred;
+    background: transparent;
+}
+
+.code a{
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 8px;
+    background: indianred;
+    transition: 0.4s;
+}
+
+.code a:hover{
+    border: 1px solid indianred;
+    background: transparent;
+}
+
+.h-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 650px;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+}
+#refreshBtn{
+    text-align: center;
+}
+.h-text span{
+    letter-spacing: 5px;
+}
+.h-text h1{
+    font-size: 3.5em
+}
+.h-text a{
+    text-decoration: none;
+    background: indianred;
+    padding: 10px 20px;
+    color: #fff;
+    letter-spacing: 5px;
+    transition: 0.4s;
+}
+.h-text a:hover{
+    border: 1px solid indianred;
+    background: transparent;
+}
+
+.emoji-container {
+    position: absolute; /* Fijo para ocupar toda la vista */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Ancho de la ventana del navegador */
+    height: 100vh; /* Alto de la ventana del navegador */
+    pointer-events: none; /* No interferir con el clic */
+    overflow: hidden;
+    z-index: 999; /* Asegurarse de que esté encima de otros elementos */
+}
+.emoji {
+    position: absolute;
+    font-size: 24px;
+    opacity: 1;
+    animation: splash 2s ease-out forwards;
+    transform-origin: center;
+}
+@keyframes splash {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(3) translateY(-100px);
+        opacity: 0;
+    }
+}
+
+/* Estilo para el modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0); /* Fondo oscuro semi-transparente */
+    z-index: 999; /* Asegura que esté sobre otros elementos */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0); /* Fondo blanco semi-transparente */
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px; /* Ancho del recuadro */
+    text-align: center;
+    position: relative;
+}
+
+.modal-content h2 {
+    margin-bottom: 15px;
+    color: #fff; /* Color del texto del encabezado */
+}
+
+.modal-content input[type="text"] {
+    width: 100%;
+    height: 70px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border: 2px solid white; /* Borde del campo de entrada con color blanco */
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0); /* Fondo transparente */
+    color: #fff;
+    font-size: 50px;
+    text-align: center; /* Color del texto en el campo de entrada */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Sombra sutil para destacar el campo */
+}
+
+.modal-content button {
+    background: indianred;
+    color: #fff;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background 0.3s;
+}
+
+.modal-content button:hover {
+    background: indianred;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #000;
+}
+
+.heart {
+    position: absolute;
+    font-size: 60px; /* Tamaño más grande para los corazones */
+    opacity: 1;
+    cursor: pointer;
+}
+
+@keyframes float {
+    from {
+        transform: scale(1) translateY(0);
+    }
+    to {
+        transform: scale(1.5) translateY(-100vh);
+        opacity: 1;
+    }
+}
+
+.error-container {
+    position: absolute; /* Fijo para ocupar toda la vista */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Ancho de la ventana del navegador */
+    height: 50px; /* Alto de la ventana del navegador */
+    pointer-events: none; /* No interferir con el clic */
+    overflow: hidden;
+    z-index: 999;
+}
+
+.errorEmoji {
+    position: absolute;
+    font-size: 24px;
+    opacity: 1;
+    animation: splash 2s ease-out forwards;
+    transform-origin: center;
+}
+
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
+    z-index: 9999; /* Asegúrate de que esté sobre todo el contenido */
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;  /* Añadir padding para asegurar que el contenido no toque los bordes */
+}
+
+#canvas {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+#backButton {
+    background: transparent;
+    color: #fff;
+    border: none;
+    font-size: 24px; /* Tamaño de la "X" */
+    cursor: pointer;
+    position: absolute; /* Posición absoluta dentro del canvas */
+    top: 10px; /* Ajusta según la distancia desde la parte superior del canvas */
+    right: 10px; /* Ajusta según la distancia desde el borde derecho del canvas */
+    z-index: 2; /* Asegúrate de que esté por encima del canvas */
+    transition: color 0.3s;
+}
+
+#backButton:hover {
+    color: indianred;
+}
+
+.text-box {
+    position: absolute; /* Posición absoluta para centrar el texto */
+    top: 50%; /* Centra verticalmente */
+    left: 50%; /* Centra horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta para centrar el texto */
+    z-index: 2; /* Asegúrate de que esté por encima del canvas */
+}
+.text-box h1 {
+    color: #ffff;
+    font-size: 24px; /* Tamaño del texto */
+    font-family: Arial, sans-serif; 
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #ff31dd,
+    0 0 20px #ff31dd,
+    0 0 40px #ff31dd,
+    0 0 80px #ff31dd,
+    0 0 120px #ff31dd;
+}
+
+.gallery-modal{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+#gallery{
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    transform-style: preserve-3d;
+}
+.box{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    transition: 1.5s;
+    transform: perspective(1000px) rotateY(0deg);
+}
+.box span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    transform: rotateY(calc(var(--i) * 45deg)) translateZ(300px);
+    -webkit-box-reflect: below 0px linear-gradient(transparent, transparent, #0004)
+}
+.box span img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  
+    user-select: none;   
+    border-radius: 10px; /* Opcional: redondea las esquinas de las imágenes */
+}
+.btns{
+    position: absolute;
+    bottom: 100px;
+    display: flex;
+    gap: 30px;
+}
+.btns .btn{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border: 2px solid #fff;
+    border-radius: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.btns .btn:active{
+    background: #fff;
+}
+
+.btns .btn::before
+{
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-top: 3px solid #fff;
+    border-right: 3px solid #fff;
+    transform: rotate(45deg) translate(-2.5px, 2.5px);
+}
+.btns .btn.prev::before{
+    transform: rotate(225deg) translate(-2.5px, 2.5px);
+}
+.btns .btn:active::before{
+    border-top: 3px solid #000;
+    border-right: 3px solid #000;
+}
+#backButton2 {
+    background: transparent;
+    color: #fff;
+    border: none;
+    font-size: 24px; /* Tamaño de la "X" */
+    cursor: pointer;
+    position: absolute; /* Posición absoluta dentro del canvas */
+    top: 10px; /* Ajusta según la distancia desde la parte superior del canvas */
+    right: 10px; /* Ajusta según la distancia desde el borde derecho del canvas */
+    z-index: 2; /* Asegúrate de que esté por encima del canvas */
+    transition: color 0.3s;
+}
+
+#backButton2:hover {
+    color: indianred;
+}
+
+:root{
+    --primary: #fff;
+    --bg-envelope-color: #f5edd1;
+    --envelope-tab: #ecdeb8;
+    --envelope-cover: #e6cfa7;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --txt-color: #444;
+    --heart-color: rgb(252, 8, 231);
+}
+.letter-modal{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+.letter-modal > .envelope-wrapper{
+    background: var(--bg-envelope-color);
+    box-shadow: 0 0 40px var(--shadow-color);
+
+}
+
+.envelope-wrapper > .envelope{
+    position: relative;
+    width: 300px;
+    height: 230px;
+}
+.envelope-wrapper > .envelope::before{
+    content: '';
+    position: absolute;
+    z-index: 2;
+    border-top: 130px solid var(--envelope-tab);
+    border-right: 150px solid transparent;
+    border-left: 150px solid transparent;
+    top: 0;
+    transform-origin: top;
+    transition: all 0.5s ease-in-out 0.7;
+}
+.envelope-wrapper > .envelope::after{
+    content: '';
+    position: absolute;
+    z-index: 2;
+    border-top: 130px solid transparent;
+    border-left: 150px solid var(--envelope-cover);
+    border-right: 150px solid var(--envelope-cover);
+    border-bottom: 100px solid var(--envelope-cover);
+    bottom: 0;
+    width: 0px;
+    height: 0px;
+}
+.envelope > .letter{
+    position: absolute;
+    right: 20%;
+    bottom: 0;
+    width: 60%;
+    height: 100%;
+    background: var(--primary);
+    transition: all 1s ease-in-out;
+    padding: 20px 10px;
+    box-shadow: 0 0 10px var(--shadow-color);
+    text-align: center;
+}
+.envelope > .letter > .text{
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 11px;
+    color: var(--txt-color);
+    text-align: left;
+    
+}
+.heart2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    background: var(--heart-color);
+    z-index: 4;
+    transform: translate(-50%, -20%) rotate(45deg);
+    transition: transform 0.5s ease-in-out 1s;
+    box-shadow: 0 0 10px var(--shadow-color);
+    cursor: pointer;
+}
+.heart2::before,
+.heart2::after{
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: var(--heart-color);
+    border-radius: 50%;
+}
+.heart2::before{
+    top: -7.5px;
+}
+.heart2::after{
+    right: 7.5px;
+}
+.flap > .envelope::before{
+    z-index: 0;
+    transform: rotateX(180deg);
+}
+.flap > .envelope .letter{
+    bottom: 100px;
+    transform: scale(1.5);
+    transition-delay: 1s;
+}
+.flap > .heart2{
+    transform: rotate(90deg);
+    transition-delay: 0.4s;
+}
+
+#backButton3 {
+    background: transparent;
+    color: #fff;
+    border: none;
+    font-size: 24px; /* Tamaño de la "X" */
+    cursor: pointer;
+    position: absolute; /* Posición absoluta dentro del canvas */
+    top: 10px; /* Ajusta según la distancia desde la parte superior del canvas */
+    right: 10px; /* Ajusta según la distancia desde el borde derecho del canvas */
+    z-index: 2; /* Asegúrate de que esté por encima del canvas */
+    transition: color 0.3s;
+}
+
+#backButton3:hover {
+    color: indianred;
+}
+
+.question-modal{
+    width: 100%;
+    min-height: 100vh;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: #f3d7f4;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    z-index: 1000;
+}
+.question-gif{
+    display: flex;
+    max-width: 300px;
+}
+
+.question-modal .question-btn{
+    display: flex;
+    gap: 25px;
+}
+
+.question-btn a{
+    text-decoration: none;
+    background: indianred;
+    color: #fff;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background 0.3s;
+    box-shadow: 0.5rem 1rem 3rem hsl(0, 0%, 0%, 0.3);
+}
+
+.question-btn a:hover{
+    background: transparent;
+    border: indianred;
+    color: #000;
+}
+#backButton4 {
+    background: transparent;
+    color: #000;
+    border: none;
+    font-size: 24px; /* Tamaño de la "X" */
+    cursor: pointer;
+    position: absolute; /* Posición absoluta dentro del canvas */
+    top: 10px; /* Ajusta según la distancia desde la parte superior del canvas */
+    right: 10px; /* Ajusta según la distancia desde el borde derecho del canvas */
+    z-index: 2; /* Asegúrate de que esté por encima del canvas */
+    transition: color 0.3s;
+}
+
+#backButton4:hover {
+    color: indianred;
+}
+
+#noBtn {
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.move {
+    transform: translateX(calc(100% + 10px));
+}
