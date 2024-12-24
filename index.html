@@ -115,11 +115,50 @@
         <button id="backButton4"><i class="fas fa-times"></i></button>
     </div>
 
+    <!-- CODE 6 -->
+    <div id="map-modal" class="map-modal" style="display: flex;">
+        <div class="map-container">
+            <div id="map">
+                <button id="resetButton" style="display: none;">Volver a la vista inicial</button>
+                <div class="image-container">
+                    <img src="./map_images/1.png" class="point" alt="Ubicación 1" 
+                    style="position: absolute; top: 30px; left: 70px;" 
+                    data-description="A veces me pregunto, cómo pude vivir casi toda mi vida sin tí, porque me duele esta soledad.">
+                    <img src="./map_images/2.png" class="point" alt="Ubicación 2" 
+                    style="position: absolute; top: 150px; left: 200px;" 
+                    data-description="Pero sé que tu partida no es para siempre, y que piensas en mí con cada respirar.">
+                    <img src="./map_images/3.png" class="point" alt="Ubicación 3" 
+                    style="position: absolute; top: 270px; left: 350px;" 
+                    data-description="Y aprendí a ser paciente, pues qué tal paciencia tuve, esperando que llegues a mi vida.">
+                    <img src="./map_images/4.png" class="point" alt="Ubicación 4" 
+                    style="position: absolute; top: 400px; left: 100px;" 
+                    data-description="Te sigo amando más que ayer, sobrepasando esta distancia, que pronto acabará.">
+                    <img src="./map_images/5.png" class="point" alt="Ubicación 5" 
+                    style="position: absolute; top: 400px; left: 500px;" 
+                    data-description="Será reemplazada con mis besos y caricias, y podré exclamar: Finalmente te vuelvo a tener en mis brazos, amor mío.">
+                </div>
+            </div>
+
+            <!-- Tarjeta para la descripción -->
+            <div id="image-description" class="image-description" style="display: none;">
+                <div class="card">
+                    <p id="description-text"></p> <!-- Aquí se insertará el texto -->
+                </div>
+            </div>
+            
+            <div id="tooltip" style="display: none; position: absolute; background: rgba(0, 0, 0, 0.7); color: white; padding: 5px; border-radius: 5px;"></div>
+            <button id="backButton5"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+
+    
+
     <script src="code1.js"></script>
     <script src="code2.js"></script>
     <script src="code3.js"></script>
     <script src="code4.js"></script>
     <script src="code5.js"></script>
+    <script src="code6.js"></script>
     <script src="errorCode.js"></script>
     <script src="script.js"></script>
 </body>

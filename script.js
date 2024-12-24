@@ -153,6 +153,10 @@ document.getElementById('modalForm').addEventListener('submit', function(e) {
         showQuestion();
     }
 
+    else if(inputText === 'VUELVEPRONTO') {
+        showMap();
+    }
+
     else if(inputText === '21FY') {
         window.location.href = './flow/main.html';
     }
